@@ -11,8 +11,4 @@ public class Calculator {
         System.out.println("Somme : " + add(3, 2));
         System.out.println("Reduction : " + reduce(3, 2));
     }
-
-
-}
-
-
+} 

@@ -1,0 +1,1 @@
+web: java -jar target/Simple-Java-CI-1.0-SNAPSHOT.jar 
