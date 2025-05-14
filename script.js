@@ -1,5 +1,5 @@
 // URL de l'API backend (à remplacer par l'URL de votre déploiement Railway)
-const API_URL = 'https://votre-app-railway.up.railway.app';
+const API_URL = 'https://simple-java-ci-production.up.railway.app';
 
 // Éléments du DOM
 const number1Input = document.getElementById('number1');
@@ -20,14 +20,15 @@ async function makeRequest(endpoint, numbers) {
         });
 
         if (!response.ok) {
-            throw new Error(`Erreur HTTP: ${response.status}`);
+            const errorData = await response.json();
+            throw new Error(errorData.error || `Erreur HTTP: ${response.status}`);
         }
 
         const data = await response.json();
         return data;
     } catch (error) {
         console.error('Erreur:', error);
-        resultSpan.textContent = 'Erreur de connexion';
+        resultSpan.textContent = error.message || 'Erreur de connexion';
         throw error;
     }
 }
