@@ -5,6 +5,4 @@ buildCommand = "mvn clean package"
 [deploy]
 startCommand = "java -jar target/Simple-Java-CI-1.0-SNAPSHOT.jar"
 healthcheckPath = "/"
-healthcheckTimeout = 100
-restartPolicyType = "on-failure"
-restartPolicyMaxRetries = 10 
+healthcheckTimeout = 100 
