@@ -1,0 +1,10 @@
+[build]
+builder = "nixpacks"
+buildCommand = "mkdir -p target/classes && javac -d target/classes src/Calculator.java && jar cf target/Simple-Java-CI.jar -C target/classes ."
+
+[deploy]
+startCommand = "java -jar target/Simple-Java-CI.jar"
+healthcheckPath = "/"
+healthcheckTimeout = 100
+restartPolicyType = "on-failure"
+restartPolicyMaxRetries = 10 

@@ -1,0 +1,30 @@
+name: Deploy to Railway
+
+on:
+  push:
+    branches: [ main ]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      
+      - name: Set up JDK
+        uses: actions/setup-java@v2
+        with:
+          java-version: '17'
+          distribution: 'adopt'
+          
+      - name: Compile Java
+        run: |
+          mkdir -p target/classes
+          javac -d target/classes src/Calculator.java
+          jar cf target/Simple-Java-CI.jar -C target/classes .
+          
+      - name: Deploy to Railway
+        uses: bervProject/railway-deploy@v1
+        with:
+          railway_token: ${{ secrets.RAILWAY_TOKEN }}
+          project_id: ${{ secrets.RAILWAY_PROJECT_ID }}
+          service_id: ${{ secrets.RAILWAY_SERVICE_ID }} 
