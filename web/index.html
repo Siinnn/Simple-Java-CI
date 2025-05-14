@@ -1,20 +1,28 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="fr">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Java CI/CD</title>
+    <title>Calculatrice</title>
     <link rel="stylesheet" href="style.css">
 </head>
-<body> 
-    <nav>
-        <ul>
-            <a href="index.html">Accueil</a>
-            <a href="contact.html">Contact</a>
-        </ul>
-    </nav>
-    <h1>Java CI/CD</h1>
-   
-    <p>Bienvenue sur la page de test de Java CI/CD</p>
+<body>
+    <div class="container">
+        <h1>Calculatrice</h1>
+        <div class="calculator">
+            <div class="input-group">
+                <input type="number" id="number1" placeholder="Premier nombre">
+                <input type="number" id="number2" placeholder="Deuxième nombre">
+            </div>
+            <div class="buttons">
+                <button id="addButton" class="btn">Additionner</button>
+                <button id="reduceButton" class="btn">Soustraire</button>
+            </div>
+            <div class="result">
+                <p>Résultat: <span id="result">-</span></p>
+            </div>
+        </div>
+    </div>
+    <script src="script.js"></script>
 </body>
 </html>
